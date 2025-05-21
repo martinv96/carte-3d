@@ -1,0 +1,20 @@
+{
+  "size": { "width": 10, "depth": 10, "height": 3 },
+  "terrain": [
+    ["grass", "grass", "water", "water", "grass", "grass", "sand", "sand", "grass", "grass"],
+    ["grass", "rock", "rock", "water", "water", "grass", "sand", "sand", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "tree", "tree", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "rock", "rock", "grass", "grass"],
+    ["sand", "sand", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["sand", "sand", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "water", "water", "water", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"]
+  ],
+  "objects": [
+    { "type": "tree", "position": { "x": 3, "y": 0, "z": 3 }, "rotation": 0, "scale": 1 },
+    { "type": "rock", "position": { "x": 1, "y": 0, "z": 4 }, "rotation": 0, "scale": 1.5 },
+    { "type": "building", "position": { "x": 7, "y": 0, "z": 7 }, "rotation": 90, "scale": 2 }
+  ]
+}
