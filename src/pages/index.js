@@ -254,7 +254,7 @@ export default function Home() {
 
   // Charger capitals.json au montage
   useEffect(() => {
-    fetch('/data/capitals.json')
+    fetch('/capitals.json')
       .then((r) => r.json())
       .then(setCapitals);
   }, []);
