@@ -28,21 +28,31 @@ function vector3ToLatLong(vector) {
 
 // API Nominatim reverse geocoding
 async function reverseGeocode(lat, lon) {
-  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
+  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=10&addressdetails=1`;
 
   try {
-    const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'My3DGlobeApp/1.0 (contact@example.com)',
-      },
-    });
+    const response = await fetch(url);
     if (!response.ok) throw new Error('Network error');
     const data = await response.json();
-    return data.display_name || "Lieu inconnu";
+
+    const address = data.address || {};
+    const city = address.city || address.town || address.village || address.hamlet || "";
+    const country = address.country || "";
+
+    if (city && country) {
+      return `${city}, ${country}`;
+    } else if (country) {
+      return country;
+    } else if (data.display_name) {
+      return data.display_name;
+    } else {
+      return "Lieu inconnu";
+    }
   } catch {
     return "Lieu inconnu";
   }
 }
+
 
 // Composant POI cliquable avec animation, label visible uniquement si pas caché par la Terre
 function POI({ name, lat, lon, radius, onClick, earthRef }) {
